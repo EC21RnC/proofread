@@ -161,7 +161,8 @@ if submit and user_input:
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
-        browser = uc.Chrome(options=options)
+        browser = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+        # browser = uc.Chrome(options=options)
         browser.implicitly_wait(15)
         # pass the chrome options object to the webdriver.Chrome() constructor
 
