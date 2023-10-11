@@ -1,4 +1,4 @@
 openai
 streamlit
-seleniumbase
-webdriver-manager
+selenium
+undetected-chromedriver
