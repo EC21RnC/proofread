@@ -3,23 +3,25 @@ import streamlit as st
 import openai
 import os
 
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import re
-
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
-@st.experimental_singleton
+@st.cache_resource
 def get_driver():
     return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 options = Options()
 options.add_argument('--disable-gpu')
 options.add_argument('--headless')
+
+browser = get_driver()
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import re
 
 # https://docs.streamlit.io/library/api-reference
 # https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/
@@ -169,8 +171,8 @@ if submit and user_input:
         chrome_options.add_argument("--headless")
 
         # pass the chrome options object to the webdriver.Chrome() constructor
-        browser = get_driver()
-        browser.implicitly_wait(15)
+
+        # browser.implicitly_wait(15)
         html = proof_read(user_input)
         st.session_state["proofread_result"] = html
 else:
