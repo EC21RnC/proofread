@@ -155,10 +155,11 @@ html = ""
 if submit and user_input:
     with st.spinner("_고치고 있습니다..._"):
     # create a chrome options object and set the headless argument to True
-        options = uc.ChromeOptions()
-        options.add_argument('--disable-popup-blocking')
-        
-        browser = uc.Chrome( options = options,enable_cdp_events=True,incognito=True)
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        browser = uc.Chrome(options=options)
         browser.implicitly_wait(15)
         # pass the chrome options object to the webdriver.Chrome() constructor
 
