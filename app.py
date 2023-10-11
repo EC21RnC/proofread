@@ -160,7 +160,7 @@ with st.form("proofread"):
     # user_input = user_input.replace('\n\n', ' ').replace('\n', ' ').strip()
     submit = st.form_submit_button("**맞춤법 검사 시작**", use_container_width = True)
 
-
+html = ""
 if submit and user_input:
     with st.spinner("_고치고 있습니다..._"):
     # create a chrome options object and set the headless argument to True
