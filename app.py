@@ -3,20 +3,7 @@ import streamlit as st
 import openai
 import os
 
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-
-
-def get_driver():
-    return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-
-options = Options()
-options.add_argument('--disable-gpu')
-options.add_argument('--headless')
-
-browser = get_driver()
+import undetected_chromedriver as uc
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -167,9 +154,8 @@ html = ""
 if submit and user_input:
     with st.spinner("_고치고 있습니다..._"):
     # create a chrome options object and set the headless argument to True
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument("--headless")
-
+        browser = uc.Chrome
+        browser.implicitly_wait(15)
         # pass the chrome options object to the webdriver.Chrome() constructor
 
         # browser.implicitly_wait(15)
