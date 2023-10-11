@@ -154,7 +154,7 @@ html = ""
 if submit and user_input:
     with st.spinner("_고치고 있습니다..._"):
     # create a chrome options object and set the headless argument to True
-        browser = uc.Chrome
+        browser = uc.Chrome()
         browser.implicitly_wait(15)
         # pass the chrome options object to the webdriver.Chrome() constructor
 
