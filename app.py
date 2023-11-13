@@ -11,7 +11,9 @@ import streamlit.web.cli as stcli
 # https://docs.streamlit.io/library/api-reference
 # https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/
 # streamlit run app.py
-openai.api_key = st.secrets["api_key"]
+openai.organization = "org-cWYPb9h1vIjpstBy0y6td4Sj"
+openai.api_key = os.getenv('api_key')
+secret_key = os.getenv('secret_key')
 # os.environ["api_key"] == st.secrets["api_key"]
 
 # os.environ[]
