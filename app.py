@@ -170,7 +170,10 @@ with tab1:
 
         with st.spinner("_:robot_face: GPT가 고유명사를 찾고 있어요..._"):
             result_proper = gpt_get_pnouns(user_input)
-            result_proper = pd.DataFrame(json.loads(result_proper))
+            result_proper = pd.DataFrame(json.loads(result_proper),
+                                        column_config={'이머릭스' : st.column_config.LinkColumn(),
+                                                       '네이버' : st.column_config.LinkColumn(),
+                                                       '구글' : st.column_config.LinkColumn()})
             st.subheader('>> 고유명사 검색 결과')
             with st.expander('펼쳐서 보기'):
                 st.dataframe(result_proper)
