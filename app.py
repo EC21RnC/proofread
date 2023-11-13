@@ -45,7 +45,7 @@ def gpt_get_keywords(user_input):
     for i in range(retries):
         try:
             completion = openai.ChatCompletion.create(
-                model="gpt-4",
+                model="gpt-4-1106-preview",
                 temperature = 0,
                 max_tokens = 300,
                 messages=[
@@ -83,7 +83,7 @@ def gpt_get_pnouns(user_input):
     for i in range(retries):
         try:
             completion = openai.ChatCompletion.create(
-                model="gpt-4",
+                model="gpt-4-1106-preview",
                 temperature = 0,
                 max_tokens = 2000,
                 messages=[
