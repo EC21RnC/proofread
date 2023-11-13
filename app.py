@@ -170,15 +170,15 @@ with tab1:
 
         with st.spinner("_:robot_face: GPT가 고유명사를 찾고 있어요..._"):
             result_proper = gpt_get_pnouns(user_input)
-            result_proper = pd.DataFrame(json.loads(result_proper),
-                                        column_config={'이머릭스' : st.column_config.LinkColumn('이머릭스 링크'),
-                                                       '네이버' : st.column_config.LinkColumn('네이버 링크'),
-                                                       '구글' : st.column_config.LinkColumn('구글 링크')
-                                                      }
-                                        )
+            result_proper = pd.DataFrame(json.loads(result_proper))
             st.subheader('>> 고유명사 검색 결과')
             with st.expander('펼쳐서 보기'):
-                st.dataframe(result_proper)
+                st.dataframe(result_proper,
+                             column_config={'이머릭스' : st.column_config.LinkColumn('이머릭스 링크'),
+                                                       '네이버' : st.column_config.LinkColumn('네이버 링크'),
+                                                       '구글' : st.column_config.LinkColumn('구글 링크')
+                                           }
+                            )
 
 
         st.divider()
@@ -222,7 +222,11 @@ with tab2:
                 st.code(item[0], language = 'markdown')
                 
                 st.subheader('고유명사')
-                st.dataframe(item[1])
+                st.dataframe(item[1],
+                             column_config={'이머릭스' : st.column_config.LinkColumn('이머릭스 링크'),
+                                                       '네이버' : st.column_config.LinkColumn('네이버 링크'),
+                                                       '구글' : st.column_config.LinkColumn('구글 링크')
+                                           })
                 
                 st.subheader('기사검색결과')
                 st.code(item[2] + '\n' + item[3] + '\n' + item[4], language = 'markdown')
