@@ -116,7 +116,7 @@ def gpt_get_pnouns(user_input):
                 continue
             else:
                 print(f'Request failed after {retries} attempts. Error: {e}')
-                return None  # or some other value indicating failure
+                return e #  None  # or some other value indicating failure
 
 
 
