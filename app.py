@@ -215,7 +215,7 @@ with tab2:
                 st.code(item[0], language = 'markdown')
                 
                 st.subheader('고유명사')
-                st.dataframe(item[1], language = 'markdown')
+                st.dataframe(item[1])
                 
                 st.subheader('기사검색결과')
                 st.code(item[2] + '\n' + item[3] + '\n' + item[4], language = 'markdown')
