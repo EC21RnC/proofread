@@ -1,11 +1,5 @@
 import streamlit as st
 from openai import OpenAI
-
-client = OpenAI(
-    # defaults to os.environ.get("OPENAI_API_KEY")
-    api_key = os.getenv('api_key')
-)
-
 import os
 import re
 import ast
@@ -22,6 +16,12 @@ import streamlit.web.cli as stcli
 # os.environ["api_key"] == st.secrets["api_key"]
 openai.api_key = os.getenv('api_key')
 secret_key = os.getenv('secret_key')
+
+client = OpenAI(
+    # defaults to os.environ.get("OPENAI_API_KEY")
+    api_key = os.getenv('api_key')
+)
+
 # os.environ["api_key"] == st.secrets["api_key"]
 
 # os.environ[]
