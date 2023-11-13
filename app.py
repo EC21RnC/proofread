@@ -168,7 +168,8 @@ with tab1:
     if submit and user_input and len(user_input) < 2000 and secret_key == secret_key_user:
 
         with st.spinner("_:robot_face: GPT가 고유명사를 찾고 있어요..._"):
-            result_proper = pd.DataFrame(json.loads(result))
+            result_proper = gpt_get_pronouns(user_input)
+            result_proper = pd.DataFrame(json.loads(result_proper))
             st.subheader('>> 고유명사 검색 결과')
             with st.expander('펼쳐서 보기'):
                 st.dataframe(result_proper)
