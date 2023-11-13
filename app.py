@@ -15,7 +15,6 @@ import streamlit.web.cli as stcli
 # os.environ["api_key"] == st.secrets["api_key"]
 openai.organization = "org-cWYPb9h1vIjpstBy0y6td4Sj"
 secret_key = "movefast"
-openai.api_key = "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"
 
 # os.environ[]
 # ------------------------------------------------------------------- # 
